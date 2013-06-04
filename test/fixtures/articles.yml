@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  desc: MyText
+  content: MyText
+  level: 1
+  user: 
+  category: 
+
+two:
+  name: MyString
+  desc: MyText
+  content: MyText
+  level: 1
+  user: 
+  category: 

@@ -4,12 +4,65 @@ zh-CN:
       user: 用户
       category: 分类
       tag: 标签
-      roadmap: 成长路线
-      course: 课程
+      position: 岗位
+      point: 技能点
       article: 文章
     attributes:
       user:
         id: 编号
+        email: 电子邮箱
+        password: 密码
+        password_confirmation: 确认密码
+        current_password: 当前密码
+        reset_password_sent_at: 重置密码发送于
+        remember_created_at: 记住用户开始时间
+        sign_in_count: 登录次数
+        current_sign_in_at: 本次登录时间
+        last_sign_in_at: 上次登录时间
+        current_sign_in_ip: 本次登录
+        last_sign_in_ip: 上次登录IP
+        name: 用户名
+        provider: 用户来源
+        uid: 来源编号
+        articles: 对应文章
         created_at: 创建时间
         updated_at: 最近更新
-
+      tag:
+        id: 编号
+        name: 名称
+        desc: 描述
+        articles: 对应文章
+        created_at: 创建时间
+        updated_at: 最近更新
+      category:
+        id: 编号
+        name: 名称
+        desc: 描述
+        created_at: 创建时间
+        updated_at: 最近更新
+      position:
+        id: 编号
+        name: 名称
+        desc: 描述
+        points: 对应技能点
+        created_at: 创建时间
+        updated_at: 最近更新
+      point:
+        id: 编号
+        name: 名称
+        desc: 描述
+        positions: 对应岗位
+        articles: 对应文章
+        created_at: 创建时间
+        updated_at: 最近更新
+      article:
+        id: 编号
+        name: 名称
+        desc: 描述
+        content: 内容
+        points: 对应职责
+        tags: 对应标签
+        user: 用户
+        category: 分类
+        created_at: 创建时间
+        updated_at: 最近更新
