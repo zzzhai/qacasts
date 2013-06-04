@@ -7,9 +7,11 @@
           <li class="<%= 'active' if params[:controller] == 'home' %>">
             <%= link_to t('home_page'), root_path %>
           </li>
-          <li>
-            <%= link_to t('site_admin'), rails_admin_path %>
-          </li>
+          <%- if user_signed_in? %>
+              <li>
+                <%= link_to t('site_admin'), rails_admin_path %>
+              </li>
+          <%- end %>
         </ul>
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>

@@ -27,6 +27,22 @@ ActiveRecord::Schema.define(:version => 20130604075301) do
   add_index "articles", ["category_id"], :name => "index_articles_on_category_id"
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
 
+  create_table "articles_positions", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.integer "position_id"
+  end
+
+  add_index "articles_positions", ["article_id", "position_id"], :name => "index_articles_positions_on_article_id_and_position_id"
+  add_index "articles_positions", ["position_id", "article_id"], :name => "index_articles_positions_on_position_id_and_article_id"
+
+  create_table "articles_tags", :id => false, :force => true do |t|
+    t.integer "article_id"
+    t.integer "tag_id"
+  end
+
+  add_index "articles_tags", ["article_id", "tag_id"], :name => "index_articles_tags_on_article_id_and_tag_id"
+  add_index "articles_tags", ["tag_id", "article_id"], :name => "index_articles_tags_on_tag_id_and_article_id"
+
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -39,6 +55,14 @@ ActiveRecord::Schema.define(:version => 20130604075301) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "points_positions", :id => false, :force => true do |t|
+    t.integer "point_id"
+    t.integer "position_id"
+  end
+
+  add_index "points_positions", ["point_id", "position_id"], :name => "index_points_positions_on_point_id_and_position_id"
+  add_index "points_positions", ["position_id", "point_id"], :name => "index_points_positions_on_position_id_and_point_id"
 
   create_table "positions", :force => true do |t|
     t.string   "name"
