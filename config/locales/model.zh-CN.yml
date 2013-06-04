@@ -1,0 +1,15 @@
+zh-CN:
+  activerecord:
+    models:
+      user: 用户
+      category: 分类
+      tag: 标签
+      roadmap: 成长路线
+      course: 课程
+      article: 文章
+    attributes:
+      user:
+        id: 编号
+        created_at: 创建时间
+        updated_at: 最近更新
+

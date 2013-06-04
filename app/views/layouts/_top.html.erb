@@ -1,0 +1,25 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid container">
+      <%= link_to t('site_name'), root_path, :class => 'brand' %>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+          <li class="<%= 'active' if params[:controller] == 'home' %>">
+            <%= link_to t('home_page'), root_path %>
+          </li>
+          <li>
+            <%= link_to t('site_admin'), rails_admin_path %>
+          </li>
+        </ul>
+        <p class="navbar-text pull-right">
+          <% if user_signed_in? %>
+              <strong><%= link_to current_user.name, root_path %></strong>
+              <%= link_to raw('<i class="icon-eject icon-white"></i>'), destroy_user_session_path, :method => :delete, :data => {:confirm => t('are_you_sure')}, :title => t('devise.navigation.sign_out') %>
+          <% else %>
+              <%= link_to raw('<i class="icon-user icon-white"></i>')+t('sign_in_with', :provider => :Google), user_omniauth_authorize_path(:google_oauth2) %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

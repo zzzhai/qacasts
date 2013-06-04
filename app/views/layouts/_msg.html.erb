@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    <%if not notice.nil?%>
+    $(function () {
+        $.pnotify({
+            text: '<%= notice %>',
+            sticker: false,
+            history: false,
+            animation: 'show',
+            nonblock: true,
+            type: 'success'
+        });
+    });
+    <%end%>
+    <%if not alert.nil?%>
+    $(function () {
+        $.pnotify({
+            text: '<%= alert %>',
+            sticker: false,
+            history: false,
+            animation: 'show',
+            nonblock: true,
+            type: 'error'
+        });
+    });
+    <%end%>
+</script>
