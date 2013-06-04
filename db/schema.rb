@@ -27,13 +27,13 @@ ActiveRecord::Schema.define(:version => 20130604075301) do
   add_index "articles", ["category_id"], :name => "index_articles_on_category_id"
   add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
 
-  create_table "articles_positions", :id => false, :force => true do |t|
+  create_table "articles_points", :id => false, :force => true do |t|
     t.integer "article_id"
-    t.integer "position_id"
+    t.integer "point_id"
   end
 
-  add_index "articles_positions", ["article_id", "position_id"], :name => "index_articles_positions_on_article_id_and_position_id"
-  add_index "articles_positions", ["position_id", "article_id"], :name => "index_articles_positions_on_position_id_and_article_id"
+  add_index "articles_points", ["article_id", "point_id"], :name => "index_articles_points_on_article_id_and_point_id"
+  add_index "articles_points", ["point_id", "article_id"], :name => "index_articles_points_on_point_id_and_article_id"
 
   create_table "articles_tags", :id => false, :force => true do |t|
     t.integer "article_id"

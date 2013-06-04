@@ -7,6 +7,9 @@
           <li class="<%= 'active' if params[:controller] == 'home' %>">
             <%= link_to t('home_page'), root_path %>
           </li>
+          <li class="<%= 'active' if params[:controller] == 'positions' %>">
+            <%= link_to t('activerecord.models.position'), positions_path %>
+          </li>
           <%- if user_signed_in? %>
               <li>
                 <%= link_to t('site_admin'), rails_admin_path %>

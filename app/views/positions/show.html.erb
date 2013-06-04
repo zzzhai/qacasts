@@ -1,0 +1,23 @@
+<h2 class="inline"><%= @position.name %></h2><%= link_to t('back_to', :model => t('activerecord.models.position')), positions_path %>
+<p class="muted"><%= @position.desc %></p>
+<hr class="hr">
+<% @position.points.each_with_index do |pp, i| %>
+    <div class="well">
+      <p class="lead text-center text-success"><%= link_to pp.name, pp %></p>
+
+      <p class="text-center">
+        <small><%= pp.desc %></small>
+      </p>
+      <div class="well has-border bg-color-f5">
+        <dl class="dl-horizontal">
+          <% pp.articles.each do |a| %>
+              <dt><%= a.name %></dt>
+              <dd><%= a.desc %></dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+    <div class="text-center"><label class="label label-inverse"><%= i+1 %></label></div>
+    <br/>
+    <hr class="hr"/>
+<% end %>

@@ -1,8 +1,9 @@
 zh-CN:
   site_name: QA Casts
   copy_right: Copyright © 2013 QA Casts Corporation. All rights reserved.
-  home_page: 网站首页
-  site_admin: 网站管理
-  maxim_roadmap: Victory won't come to me unless I go to it. -- M.Moore
+  home_page: 首页
+  site_admin: 管理
+  back_to: 回到%{model}列表
+  position_desc: Victory won't come to me unless I go to it. -- M.Moore
   are_you_sure: 你确定吗
   sign_in_with: 使用%{provider}帐号登录

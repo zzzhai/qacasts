@@ -1,0 +1,24 @@
+<h2><%= t('activerecord.models.position') %></h2>
+<p class="muted"><%= t('position_desc') %></p>
+<hr class="hr">
+<% @positions.each_with_index do |p, i| %>
+    <div class="well">
+      <p class="lead text-center text-success"><%= link_to p.name, p %></p>
+
+      <p class="text-center">
+        <small><%= p.desc %></small>
+      </p>
+      <div class="well has-border bg-color-f5">
+        <dl class="dl-horizontal">
+          <% p.points.each do |pp| %>
+              <dt><%= pp.name %></dt>
+              <dd><%= pp.desc %></dd>
+          <% end %>
+        </dl>
+      </div>
+    </div>
+    <div class="text-center"><label class="label label-inverse"><%= i+1 %></label></div>
+    <br/>
+    <hr class="hr"/>
+<% end %>
+

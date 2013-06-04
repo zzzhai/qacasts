@@ -2,7 +2,8 @@ Qacasts::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
-
+  resources :positions, :only => [:index, :create, :show]
+  resources :points, :only => [:show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
