@@ -4,7 +4,7 @@
       <%= render 'articles_nav' %>
     </div>
     <div class="span9">
-      <%- if not @articles.nil? %>
+      <%- if not @articles.empty? %>
           <%- @articles.each do |a| %>
               <div class="well has-border"><strong><%= link_to a.name, a %></strong>
 

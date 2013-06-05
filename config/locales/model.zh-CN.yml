@@ -60,6 +60,7 @@ zh-CN:
         name: 名称
         desc: 描述
         content: 内容
+        level: 等级
         points: 对应职责
         tags: 对应标签
         user: 用户
