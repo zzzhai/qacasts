@@ -1,0 +1,9 @@
+<div class="well">
+  <ul class="nav nav-list">
+    <p class="muted"><%= t('activerecord.attributes.article.category') %></p>
+    <li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to raw("<i class='icon-book'></i> ")+t('all')+t('activerecord.models.article'), articles_path %></li>
+    <%- @categories.each do |c| %>
+        <li class="<%= 'active' if params[:action] == 'category' && params[:param] == c.id.to_s %>"><%= link_to c.name, {:controller => 'articles', :action => 'category', :param => c.id} %></li>
+    <%- end %>
+  </ul>
+</div>

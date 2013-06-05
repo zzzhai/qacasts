@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+      <%= render 'articles_nav' %>
+    </div>
+    <div class="span9">
+      <%- if not @articles.nil? %>
+          <%- @articles.each do |a| %>
+              <div class="well has-border"><strong><%= link_to a.name, a %></strong>
+
+                <p>
+                  <small class="muted"><%= a.desc %></small>
+                </p>
+                <div><%= a.content %></div>
+              </div>
+          <%- end %>
+      <%- else %>
+          <div class="well well-large">
+            <p class='lead muted text-center'>
+              <%= t('no_articles') %>
+            </p>
+          </div>
+      <%- end %>
+    </div>
+  </div>
+</div>

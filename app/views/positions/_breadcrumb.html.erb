@@ -1,0 +1,9 @@
+<ul class="breadcrumb">
+  <%- if params[:action] == 'index' %>
+      <li class="active"><%= t('activerecord.models.position') %></li>
+  <%- elsif params[:action] == 'show' %>
+      <li><%= link_to t('activerecord.models.position'), positions_path %>
+        <span class="divider">/</span></li>
+      <li class="active"><%= t('activerecord.models.point') %></li>
+  <%- end %>
+</ul>

@@ -7,3 +7,6 @@ zh-CN:
   position_desc: Victory won't come to me unless I go to it. -- M.Moore
   are_you_sure: 你确定吗
   sign_in_with: 使用%{provider}帐号登录
+  all: 所有
+#article
+  no_articles: 没有文章

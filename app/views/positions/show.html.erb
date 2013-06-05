@@ -1,23 +1,30 @@
-<h2 class="inline"><%= @position.name %></h2><%= link_to t('back_to', :model => t('activerecord.models.position')), positions_path %>
-<p class="muted"><%= @position.desc %></p>
-<hr class="hr">
-<% @position.points.each_with_index do |pp, i| %>
-    <div class="well">
-      <p class="lead text-center text-success"><%= link_to pp.name, pp %></p>
+<%=render 'breadcrumb'%>
+<div class="well has-border text-center bg-color-f5">
+    <h2><%= @position.name %></h2>
+    <p class="muted"><%= @position.desc %></p>
+  </div>
+  <% @position.points.each_with_index do |pp, i| %>
 
-      <p class="text-center">
-        <small><%= pp.desc %></small>
-      </p>
-      <div class="well has-border bg-color-f5">
-        <dl class="dl-horizontal">
-          <% pp.articles.each do |a| %>
-              <dt><%= a.name %></dt>
-              <dd><%= a.desc %></dd>
-          <% end %>
-        </dl>
+      <div class="well has-border bg-color-f5  container-fluid has-border">
+
+        <div class="row-fluid">
+          <div class="span3 well">
+            <p class="text-center text-success"><%= pp.name %></p>
+
+            <p class="text-center muted">
+              <small><%= pp.desc %></small>
+            </p>
+          </div>
+          <div class="span9 well-small">
+            <dl>
+              <% pp.articles.each do |a| %>
+                  <dt><%= link_to a.name, a %></dt>
+                  <dd><%= a.desc %></dd>
+              <% end %>
+            </dl>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="text-center"><label class="label label-inverse"><%= i+1 %></label></div>
-    <br/>
-    <hr class="hr"/>
-<% end %>
+      <div class="text-center"><label class="label label-inverse"><%= i+1 %></label></div>
+  <% end %>
+</div>

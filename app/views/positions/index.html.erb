@@ -1,5 +1,8 @@
-<h2><%= t('activerecord.models.position') %></h2>
-<p class="muted"><%= t('position_desc') %></p>
+<%=render 'breadcrumb'%>
+<div class="text-center"><h2><%= t('activerecord.models.position') %></h2>
+
+  <p class="muted"><%= t('position_desc') %></p>
+</div>
 <hr class="hr">
 <% @positions.each_with_index do |p, i| %>
     <div class="well">

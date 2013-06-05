@@ -1,6 +1,6 @@
 <div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
-    <div class="container-fluid container">
+    <div class="container-fluid">
       <%= link_to t('site_name'), root_path, :class => 'brand' %>
       <div class="nav-collapse collapse">
         <ul class="nav">
@@ -9,6 +9,9 @@
           </li>
           <li class="<%= 'active' if params[:controller] == 'positions' %>">
             <%= link_to t('activerecord.models.position'), positions_path %>
+          </li>
+          <li class="<%= 'active' if params[:controller] == 'articles' %>">
+            <%= link_to t('activerecord.models.article'), articles_path %>
           </li>
           <%- if user_signed_in? %>
               <li>
