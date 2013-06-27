@@ -1,0 +1,16 @@
+<% if not @flash.nil? and @flash.errors.any? %>
+    <% @flash.errors.full_messages.each do |msg| %>
+        <script type="text/javascript">
+            $(function () {
+                $.pnotify({
+                    text: '<%= msg %>',
+                    sticker: false,
+                    history: false,
+                    animation: 'show',
+                    nonblock: true,
+                    type: 'error'
+                });
+            });
+        </script>
+    <% end %>
+<% end %>

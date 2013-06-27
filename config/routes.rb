@@ -1,10 +1,16 @@
 Qacasts::Application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks"}
+  root :to => 'home#index'
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  devise_for :users, :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks'}
   resources :positions, :only => [:index, :show]
   resources :articles, :only => [:index, :show]
   match '/:controller/:action/:param'
+
+  match '/404', :to => 'errors#not_found'
+  match '/422', :to => 'errors#change_rejected'
+  match '/500', :to => 'errors#something_wrong'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -54,7 +60,7 @@ Qacasts::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
+  #root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
