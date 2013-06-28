@@ -27,6 +27,17 @@ body {
     display: inline
 }
 
-site-name{
+site-title {
+    font-family: 'Lily Script One', cursive;
+    font-size: 130%;
+}
+
+color-title {
+    font-family: 'Lily Script One', cursive;
+    font-size: 130%;
+    color: #d62c1a;
+}
+
+site-copyright {
     font-family: 'Lily Script One', cursive;
 }

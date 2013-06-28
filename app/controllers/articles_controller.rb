@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_filter :auth_user
+
   def index
     @articles = Article.all
     @categories = Category.all

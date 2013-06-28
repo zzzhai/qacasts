@@ -1,6 +1,9 @@
 Qacasts::Application.routes.draw do
 
   root :to => 'home#index'
+  get 'wizard', :to => 'home#wizard'
+  post 'wizard_submit', :to => 'home#wizard_submit'
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users, :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks'}
   resources :positions, :only => [:index, :show]

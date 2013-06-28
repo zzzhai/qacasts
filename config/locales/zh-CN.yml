@@ -1,5 +1,7 @@
 zh-CN:
   site_name: QA Casts
+  qa: QA
+  casts: Casts
   copy_right: Copyright © 2013 QA Casts Corporation. All rights reserved.
   home_page: 首页
   site_admin: 管理
@@ -8,5 +10,21 @@ zh-CN:
   are_you_sure: 你确定吗
   sign_in_with: 使用%{provider}帐号登录
   all: 所有
+  or: 或者
+#wizard
+  wizard:
+    show_wizard: 重新定制
+    if_wizard: 如果你完成了定制，请
+    back_to: 回到
+    title: 定制你的学习内容
+    pages:
+      card_1: 第一页
+      card_2: 第二页
+    buttons:
+      next: 下一步
+      back: 上一步
+      submit: 提交
+      submitting: 提交中...
 #article
-  no_articles: 没有文章
+  article:
+    no_articles: 没有文章
