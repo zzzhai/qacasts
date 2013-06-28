@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def auth_user
     if user_signed_in?
       if not current_user.wizard
-        redirect_to wizard_path
+        redirect_to wizard_path(:first)
       end
     else
       redirect_to user_omniauth_authorize_path(:google_oauth2)
