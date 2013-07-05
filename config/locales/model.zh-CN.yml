@@ -7,6 +7,7 @@ zh-CN:
       position: 岗位
       point: 技能点
       article: 文章
+      article_content: 文章内容
     attributes:
       user:
         id: 编号
@@ -59,11 +60,18 @@ zh-CN:
         id: 编号
         name: 名称
         desc: 描述
-        content: 内容
+        url: 地址
         level: 等级
         points: 对应职责
         tags: 对应标签
         user: 用户
+        article_content: 文章内容
         category: 分类
+        created_at: 创建时间
+        updated_at: 最近更新
+      article_content:
+        id: 编号
+        content: 内容
+        article: 对应文章
         created_at: 创建时间
         updated_at: 最近更新

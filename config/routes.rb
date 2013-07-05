@@ -1,14 +1,13 @@
 Qacasts::Application.routes.draw do
 
   root :to => 'home#index'
-  resources :wizards
-  #get 'wizard', :to => 'home#wizard'
-  #post 'wizard_submit', :to => 'home#wizard_submit'
+  resources :wizards, :only => [:show]
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users, :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks'}
   resources :positions, :only => [:index, :show]
   resources :articles, :only => [:index, :show]
+
   match '/:controller/:action/:param'
 
   match '/404', :to => 'errors#not_found'

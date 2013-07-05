@@ -14,4 +14,5 @@ class ArticlesController < ApplicationController
     @articles = Article.where(:category_id => params[:param])
     @categories = Category.all
   end
+
 end

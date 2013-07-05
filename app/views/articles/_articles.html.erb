@@ -4,12 +4,18 @@
     <div class="span9">
       <%- if not @articles.empty? %>
           <%- @articles.each do |a| %>
-              <div class="well has-border"><strong><%= link_to a.name, a %></strong>
+              <div class="well has-border">
+                <strong>
+                  <%- if a.article_content.nil? %>
+                      <%= link_to a.name, a.url, :target => :blank %>
+                  <%- else %>
+                      <%= link_to a.name, a %>
+                  <%- end %>
+                </strong>
 
                 <p>
                   <small class="muted"><%= a.desc %></small>
                 </p>
-                <div><%= a.content %></div>
               </div>
           <%- end %>
       <%- else %>
