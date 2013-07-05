@@ -17,3 +17,5 @@ zh-CN:
     done: 完成
   article:
     no_articles: 没有文章
+    latest: 最新
+    shared_by: 由%{user}分享

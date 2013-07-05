@@ -2,29 +2,32 @@
   <div class="row-fluid">
     <%= render 'articles_nav' %>
     <div class="span9">
-      <%- if not @articles.empty? %>
-          <%- @articles.each do |a| %>
-              <div class="well has-border">
-                <strong>
+      <dl>
+        <%- if not @articles.empty? %>
+            <%- @articles.each do |a| %>
+                <dt>
                   <%- if a.article_content.nil? %>
-                      <%= link_to a.name, a.url, :target => :blank %>
+                      <%= link_to a.name, a.url, :target => :blank, :class => 'inline' %>
                   <%- else %>
-                      <%= link_to a.name, a %>
+                      <%= link_to a.name, a, :class => 'inline' %>
                   <%- end %>
-                </strong>
-
-                <p>
+                  <%= link_to content_tag(:i, ' ', :class => 'icon-star-empty'), root_path %>
+                </dt>
+                <dd>
                   <small class="muted"><%= a.desc %></small>
-                </p>
-              </div>
-          <%- end %>
-      <%- else %>
-          <div class="well well-large">
-            <p class='lead muted text-center'>
-              <%= t('article.no_articles') %>
-            </p>
-          </div>
-      <%- end %>
-    </div>
+                  <br/>
+                  <small class="muted pull-right"><%= t('article.shared_by', :user => a.user.name) %></small>
+                  <br/>
+                </dd>
+            <%- end %>
+            </dl>
+        <%- else %>
+            <div class="well well-large">
+              <p class='lead muted text-center'>
+                <%= t('article.no_articles') %>
+              </p>
+            </div>
+        <%- end %>
+        </div>
   </div>
 </div>

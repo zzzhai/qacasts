@@ -1,7 +1,7 @@
 <div class="span3">
-  <ul class="nav nav-tabs nav-stacked">
+  <ul class="nav nav-stacked">
     <li class="nav-header"><%= t('activerecord.models.category') %></li>
-    <li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to content_tag(:i, ' ', :class => 'icon-list')+t('all')+t('activerecord.models.article'), articles_path %></li>
+    <li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to content_tag(:i, ' ', :class => 'icon-list')+t('article.latest')+t('activerecord.models.article'), articles_path %></li>
     <%- @categories.each do |c| %>
         <li class="<%= 'active' if params[:action] == 'category' && params[:param] == c.id.to_s %>"><%= link_to content_tag(:i, ' ', :class => 'icon-caret-right')+c.name, {:controller => 'articles', :action => 'category', :param => c.id} %></li>
     <%- end %>
