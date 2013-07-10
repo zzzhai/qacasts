@@ -31,7 +31,7 @@ Rails
     rake db:create
     rake db:migrate
 	rake db:seed
-    rails s
+    rails s -p 8801
 
 待完成
 -
