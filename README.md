@@ -1,7 +1,11 @@
 QA Casts
 =
+
 如何启动
 -
+
+Ubuntu
+
     # 安装mysql服务器
 	sudo apt-get install mysql-server
 	# 安装mysql2 gem
@@ -11,6 +15,16 @@ QA Casts
     sudo apt-get install libmagickwand-dev imagemagick
     # 安装JS运行环境
     sudo apt-get install nodejs
+
+Windows
+
+	# 安装mysql服务器
+	http://dev.mysql.com/downloads/
+	# 安装imageMagick
+	http://www.imagemagick.org/script/binary-releases.php#windows
+
+Rails
+
 	# 运行rails应用
     git clone https://github.com/binzh/qacasts.git
     bundle install
@@ -18,10 +32,9 @@ QA Casts
     rake db:migrate
 	rake db:seed
     rails s
+
 待完成
 -
-* 用户信息首页
-* 文章页
-* articles_users
-    * user.articles.where('articles_users.owner=1')
-    * :conditions => {:owner => '0'}
+
+* 用户信息页面
+* 首页
