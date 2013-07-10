@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  follow_type: MyString
+  follow_id: 1
+  user: 
+
+two:
+  follow_type: MyString
+  follow_id: 1
+  user: 

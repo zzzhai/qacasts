@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703095353) do
+ActiveRecord::Schema.define(:version => 20130709072923) do
 
   create_table "article_contents", :force => true do |t|
     t.text     "content"
@@ -26,15 +26,14 @@ ActiveRecord::Schema.define(:version => 20130703095353) do
     t.string   "name"
     t.text     "desc"
     t.integer  "level"
-    t.integer  "user_id"
     t.integer  "category_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "url"
+    t.integer  "user_id"
   end
 
   add_index "articles", ["category_id"], :name => "index_articles_on_category_id"
-  add_index "articles", ["user_id"], :name => "index_articles_on_user_id"
 
   create_table "articles_points", :id => false, :force => true do |t|
     t.integer "article_id"
@@ -57,6 +56,16 @@ ActiveRecord::Schema.define(:version => 20130703095353) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "follows", :force => true do |t|
+    t.string   "follow_type"
+    t.integer  "follow_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "follows", ["user_id"], :name => "index_follows_on_user_id"
 
   create_table "points", :force => true do |t|
     t.string   "name"

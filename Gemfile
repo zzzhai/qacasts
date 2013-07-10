@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'rake', '10.0.4'
 gem 'mysql2'
 gem 'devise'
 gem 'rails_admin'

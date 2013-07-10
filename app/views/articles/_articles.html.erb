@@ -11,7 +11,11 @@
                   <%- else %>
                       <%= link_to a.name, a, :class => 'inline' %>
                   <%- end %>
-                  <%= link_to content_tag(:i, ' ', :class => 'icon-star-empty'), root_path %>
+                  <%- if current_user.include_star?(a.id) %>
+                      <%= link_to content_tag(:i, ' ', :class => 'icon-star-empty'), user_follow_star_path(a.id), :title => t('article.star') %>
+                  <%- else %>
+                      <%= link_to content_tag(:i, ' ', :class => 'icon-star'), user_follow_unstar_path(a.id), :title => t('article.unstar') %>
+                  <%- end %>
                 </dt>
                 <dd>
                   <small class="muted"><%= a.desc %></small>

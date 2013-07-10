@@ -8,6 +8,7 @@ zh-CN:
       point: 技能点
       article: 文章
       article_content: 文章内容
+      follows: 关注
     attributes:
       user:
         id: 编号
@@ -73,5 +74,12 @@ zh-CN:
         id: 编号
         content: 内容
         article: 对应文章
+        created_at: 创建时间
+        updated_at: 最近更新
+      follow:
+        id: 编号
+        follow_type: 被关注类型
+        follow_id: 被关注编号
+        user: 关注用户
         created_at: 创建时间
         updated_at: 最近更新

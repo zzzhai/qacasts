@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :provider, :uid, :name, :article_ids
   has_many :articles
+  has_many :follows
 
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
@@ -21,6 +22,10 @@ class User < ActiveRecord::Base
       )
     end
     user
+  end
+
+  def include_star?(article_id)
+    Follow.where(:user_id => self.id, :follow_id => article_id, :follow_type => :article).empty?
   end
 
 end

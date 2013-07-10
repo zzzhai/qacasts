@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @categories = Category.all
+    @flash = flash[:errors]
   end
 
   def show

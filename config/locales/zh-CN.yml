@@ -19,3 +19,7 @@ zh-CN:
     no_articles: 没有文章
     latest: 最新
     shared_by: 由%{user}分享
+    star: 收藏
+    unstar: 取消收藏
+    star_successfully: 收藏《%{article}》成功
+    unstar_successfully: 取消收藏《%{article}》成功
