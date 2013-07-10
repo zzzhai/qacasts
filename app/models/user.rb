@@ -24,8 +24,12 @@ class User < ActiveRecord::Base
     user
   end
 
-  def include_star?(article_id)
+  def star?(article_id)
     Follow.where(:user_id => self.id, :follow_id => article_id, :follow_type => :article).empty?
+  end
+
+  def follow?(user_id)
+    Follow.where(:user_id => self.id, :follow_id => user_id, :follow_type => :user).empty?
   end
 
 end

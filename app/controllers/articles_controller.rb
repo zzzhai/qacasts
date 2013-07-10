@@ -16,4 +16,9 @@ class ArticlesController < ApplicationController
     @categories = Category.all
   end
 
+  def mine
+    @articles = Article.where(:user_id => current_user.id)
+    @categories = Category.all
+  end
+
 end

@@ -1,8 +1,10 @@
 <div class="span3">
-  <ul class="nav nav-stacked">
+  <ul class="nav nav-stacked nav-tabs">
     <li class="nav-header"><%= t('activerecord.models.user') %></li>
-    <li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to content_tag(:i, ' ', :class => 'icon-list')+t('article.latest')+t('activerecord.models.article'), articles_path %></li>
-
+    <li class="<%= 'active' if params[:action] == 'index' %>"><%= link_to content_tag(:i, ' ', :class => 'icon-caret-right')+t('article.latest')+t('activerecord.models.article'), articles_path %></li>
+    <li class="<%= 'active' if params[:action] == 'mine' %>"><%= link_to content_tag(:i, ' ', :class => 'icon-caret-right')+t('mine')+t('activerecord.models.article'), mine_articles_path %></li>
+    <li class="<%= 'active' if params[:action] == 'stars' %>"><%= link_to content_tag(:i, ' ', :class => 'icon-caret-right')+t('article.star')+t('de')+t('activerecord.models.article'), stars_user_follows_path %></li>
+    <li class="<%= 'active' if params[:action] == 'follows' %>"><%= link_to content_tag(:i, ' ', :class => 'icon-caret-right')+t('user.follow')+t('de')+t('activerecord.models.user'), follows_user_follows_path %></li>
     <li class="nav-header"><%= t('activerecord.models.category') %></li>
     <%- @categories.each do |c| %>
         <li class="<%= 'active' if params[:action] == 'category' && params[:param] == c.id.to_s %>"><%= link_to content_tag(:i, ' ', :class => 'icon-caret-right')+c.name, {:controller => 'articles', :action => 'category', :param => c.id} %></li>

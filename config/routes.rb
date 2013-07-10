@@ -1,24 +1,30 @@
 Qacasts::Application.routes.draw do
 
   root :to => 'home#index'
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :wizards, :only => [:show]
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   devise_for :users, :controllers => {:omniauth_callbacks => 'users/omniauth_callbacks'}
-
+  resources :users, :only => [:show]
   resource :user, :only => [] do
-    resources :follows, :only => [:delete], :on => :member do
-      get 'follow'
-      get 'unfollow'
-      get 'star'
-      get 'unstar'
+    get 'profile'
+    resources :follows, :only => [:delete] do
+      get 'star', :on => :member
+      get 'unstar', :on => :member
+      get 'follow', :on => :member
+      get 'unfollow', :on => :member
+      get 'stars', :on => :collection
+      get 'follows', :on => :collection
     end
   end
 
   resources :positions, :only => [:index, :show]
-  resources :articles, :only => [:index, :show]
+  resources :articles, :only => [:index, :show] do
+    get 'mine', :on => :collection
+  end
 
-  match '/:controller/:action/:param'
+  match '/:controller(/:action(/:param))'
 
   match '/404', :to => 'errors#not_found'
   match '/422', :to => 'errors#change_rejected'

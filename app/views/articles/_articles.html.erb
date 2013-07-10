@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row-fluid">
-    <%= render 'articles_nav' %>
+    <%= render 'articles/articles_nav' %>
     <div class="span9">
       <dl>
         <%- if not @articles.empty? %>
@@ -11,16 +11,22 @@
                   <%- else %>
                       <%= link_to a.name, a, :class => 'inline' %>
                   <%- end %>
-                  <%- if current_user.include_star?(a.id) %>
-                      <%= link_to content_tag(:i, ' ', :class => 'icon-star-empty'), user_follow_star_path(a.id), :title => t('article.star') %>
+                  <%- if current_user.star?(a.id) %>
+                      <%= link_to content_tag(:i, ' ', :class => 'icon-star-empty'), star_user_follow_path(a.id), :title => t('article.star') %>
                   <%- else %>
-                      <%= link_to content_tag(:i, ' ', :class => 'icon-star'), user_follow_unstar_path(a.id), :title => t('article.unstar') %>
+                      <%= link_to content_tag(:i, ' ', :class => 'icon-star'), unstar_user_follow_path(a.id), :title => t('article.unstar') %>
                   <%- end %>
                 </dt>
                 <dd>
                   <small class="muted"><%= a.desc %></small>
                   <br/>
-                  <small class="muted pull-right"><%= t('article.shared_by', :user => a.user.name) %></small>
+                  <small class="muted pull-right"><%= t('article.shared_by', :user => a.user.name) %>
+                    <%- if current_user.follow?(a.user.id) %>
+                        <%= link_to content_tag(:i, ' ', :class => 'icon-eye-open'), follow_user_follow_path(a.user.id), :title => t('user.follow') %>
+                    <%- else %>
+                        <%= link_to content_tag(:i, ' ', :class => 'icon-eye-close'), unfollow_user_follow_path(a.user.id), :title => t('user.unfollow') %>
+                    <%- end %>
+                  </small>
                   <br/>
                 </dd>
             <%- end %>

@@ -10,7 +10,7 @@
           <li class="<%= 'active' if params[:controller] == 'positions' %>">
             <%= link_to t('activerecord.models.position'), positions_path %>
           </li>
-          <li class="<%= 'active' if params[:controller] == 'articles' %>">
+          <li class="<%= 'active' if params[:controller] == 'articles' ||(params[:controller] == 'follows') %>">
             <%= link_to t('activerecord.models.article'), articles_path %>
           </li>
           <%- if user_signed_in? %>

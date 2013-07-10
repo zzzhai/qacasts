@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row-fluid">
+    <%= render 'articles/articles_nav' %>
+    <div class="span9">
+      <dl>
+        <%- if not @users.empty? %>
+            <%- @users.each do |u| %>
+                <dt>
+                  <%= link_to u.name, root_path, :class => 'inline' %>
+                  <%= link_to content_tag(:i, ' ', :class => 'icon-eye-close'), unfollow_user_follow_path(u.id), :title => t('user.unfollow') %>
+                </dt>
+                <dd>
+                  <small class="muted">
+                    <%- u.articles.each do |a| %>
+                        <%= link_to a.name, a %>
+                        <%- if current_user.star?(a.id) %>
+                            <%= link_to content_tag(:i, ' ', :class => 'icon-star-empty'), star_user_follow_path(a.id), :title => t('article.star') %>
+                        <%- else %>
+                            <%= link_to content_tag(:i, ' ', :class => 'icon-star'), unstar_user_follow_path(a.id), :title => t('article.unstar') %>
+                        <%- end %>
+                        <br/>
+                    <%- end %>
+                  </small>
+                  <small class="muted pull-right"><%= u.email %></small>
+                  <br/>
+                </dd>
+            <%- end %>
+            </dl>
+        <%- else %>
+            <div class="well well-large">
+              <p class='lead muted text-center'>
+                <%= t('article.no_articles') %>
+              </p>
+            </div>
+        <%- end %>
+        </div>
+  </div>
+</div>
