@@ -27,6 +27,7 @@ Rails
 
 	# 运行rails应用
     git clone https://github.com/binzh/qacasts.git
+    # 修改config/database.yml
     bundle install
     rake db:create
     rake db:migrate
